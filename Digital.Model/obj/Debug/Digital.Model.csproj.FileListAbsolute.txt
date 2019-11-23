@@ -1,0 +1,6 @@
+H:\Nishant\DigitalGreen.API\Digital.Model\bin\Debug\Digital.Model.dll
+H:\Nishant\DigitalGreen.API\Digital.Model\bin\Debug\Digital.Model.pdb
+H:\Nishant\DigitalGreen.API\Digital.Model\obj\Debug\Digital.Model.csproj.CoreCompileInputs.cache
+H:\Nishant\DigitalGreen.API\Digital.Model\obj\Debug\Digital.Model.dll
+H:\Nishant\DigitalGreen.API\Digital.Model\obj\Debug\Digital.Model.pdb
+H:\Nishant\DigitalGreen.API\Digital.Model\obj\Debug\Digital.Model.csprojAssemblyReference.cache

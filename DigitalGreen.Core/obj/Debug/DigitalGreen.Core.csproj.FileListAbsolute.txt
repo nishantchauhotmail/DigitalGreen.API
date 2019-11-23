@@ -1,0 +1,12 @@
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\DigitalGreen.Core.dll.config
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\DigitalGreen.Core.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\DigitalGreen.Core.pdb
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\EntityFramework.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\EntityFramework.SqlServer.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\EntityFramework.xml
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\bin\Debug\EntityFramework.SqlServer.xml
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\obj\Debug\DigitalGreen.Core.csprojAssemblyReference.cache
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\obj\Debug\DigitalGreen.Core.csproj.CoreCompileInputs.cache
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\obj\Debug\DigitalGreen.Core.csproj.CopyComplete
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\obj\Debug\DigitalGreen.Core.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Core\obj\Debug\DigitalGreen.Core.pdb

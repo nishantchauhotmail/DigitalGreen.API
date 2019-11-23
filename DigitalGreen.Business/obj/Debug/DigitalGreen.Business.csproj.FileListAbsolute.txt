@@ -1,0 +1,14 @@
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\obj\Debug\DigitalGreen.Business.csproj.CoreCompileInputs.cache
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\DigitalGreen.Business.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\DigitalGreen.Business.pdb
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\Digital.Model.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\DigitalGreen.Core.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\EntityFramework.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\Digital.Model.pdb
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\DigitalGreen.Core.pdb
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\DigitalGreen.Core.dll.config
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\bin\Debug\EntityFramework.xml
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\obj\Debug\DigitalGreen.Business.csproj.CopyComplete
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\obj\Debug\DigitalGreen.Business.dll
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\obj\Debug\DigitalGreen.Business.pdb
+H:\Nishant\DigitalGreen.API\DigitalGreen.Business\obj\Debug\DigitalGreen.Business.csprojAssemblyReference.cache

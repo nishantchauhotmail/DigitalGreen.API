@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DGEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="DGModel.City" />
+    <EntitySet Name="Clients" EntityType="DGModel.Client" />
+    <EntitySet Name="Countries" EntityType="DGModel.Country" />
+    <EntitySet Name="Farmers" EntityType="DGModel.Farmer" />
+    <EntitySet Name="FarmerImages" EntityType="DGModel.FarmerImage" />
+    <EntitySet Name="Genders" EntityType="DGModel.Gender" />
+    <EntitySet Name="States" EntityType="DGModel.State" />
+    <EntitySet Name="Villages" EntityType="DGModel.Village" />
+    <AssociationSet Name="FK_City_State" Association="DGModel.FK_City_State">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Farmer_Client" Association="DGModel.FK_Farmer_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Farmer" EntitySet="Farmers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="DGModel.FK_State_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Farmer_Gender" Association="DGModel.FK_Farmer_Gender">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Farmer" EntitySet="Farmers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Farmer_Village" Association="DGModel.FK_Farmer_Village">
+      <End Role="Village" EntitySet="Villages" />
+      <End Role="Farmer" EntitySet="Farmers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerImages_Farmer" Association="DGModel.FK_FarmerImages_Farmer">
+      <End Role="Farmer" EntitySet="Farmers" />
+      <End Role="FarmerImage" EntitySet="FarmerImages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="State" Relationship="DGModel.FK_City_State" FromRole="City" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Farmers" Relationship="DGModel.FK_Farmer_Client" FromRole="Client" ToRole="Farmer" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="States" Relationship="DGModel.FK_State_Country" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="Farmer">
+    <Key>
+      <PropertyRef Name="FarmerId" />
+    </Key>
+    <Property Name="FarmerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenderId" Type="Int64" Nullable="false" />
+    <Property Name="ClientId" Type="Int64" Nullable="false" />
+    <Property Name="VillageId" Type="Int64" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Landline" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="DGModel.FK_Farmer_Client" FromRole="Farmer" ToRole="Client" />
+    <NavigationProperty Name="Gender" Relationship="DGModel.FK_Farmer_Gender" FromRole="Farmer" ToRole="Gender" />
+    <NavigationProperty Name="Village" Relationship="DGModel.FK_Farmer_Village" FromRole="Farmer" ToRole="Village" />
+    <NavigationProperty Name="FarmerImages" Relationship="DGModel.FK_FarmerImages_Farmer" FromRole="Farmer" ToRole="FarmerImage" />
+  </EntityType>
+  <EntityType Name="FarmerImage">
+    <Key>
+      <PropertyRef Name="FarmerImagesId" />
+    </Key>
+    <Property Name="FarmerImagesId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FarmerId" Type="Int64" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Farmer" Relationship="DGModel.FK_FarmerImages_Farmer" FromRole="FarmerImage" ToRole="Farmer" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderId" />
+    </Key>
+    <Property Name="GenderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Farmers" Relationship="DGModel.FK_Farmer_Gender" FromRole="Gender" ToRole="Farmer" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cities" Relationship="DGModel.FK_City_State" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="DGModel.FK_State_Country" FromRole="State" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="Village">
+    <Key>
+      <PropertyRef Name="VillageId" />
+    </Key>
+    <Property Name="VillageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Farmers" Relationship="DGModel.FK_Farmer_Village" FromRole="Village" ToRole="Farmer" />
+  </EntityType>
+  <Association Name="FK_City_State">
+    <End Type="DGModel.State" Role="State" Multiplicity="1" />
+    <End Type="DGModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Farmer_Client">
+    <End Type="DGModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="DGModel.Farmer" Role="Farmer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="Farmer">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Type="DGModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="DGModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Farmer_Gender">
+    <End Type="DGModel.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="DGModel.Farmer" Role="Farmer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderId" />
+      </Principal>
+      <Dependent Role="Farmer">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Farmer_Village">
+    <End Type="DGModel.Village" Role="Village" Multiplicity="1" />
+    <End Type="DGModel.Farmer" Role="Farmer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Village">
+        <PropertyRef Name="VillageId" />
+      </Principal>
+      <Dependent Role="Farmer">
+        <PropertyRef Name="VillageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerImages_Farmer">
+    <End Type="DGModel.Farmer" Role="Farmer" Multiplicity="0..1" />
+    <End Type="DGModel.FarmerImage" Role="FarmerImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farmer">
+        <PropertyRef Name="FarmerId" />
+      </Principal>
+      <Dependent Role="FarmerImage">
+        <PropertyRef Name="FarmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
